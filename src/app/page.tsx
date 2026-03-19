@@ -140,7 +140,7 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-gray-400/30 text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="border-white/50 text-white bg-transparent hover:bg-white/15 hover:border-white/70">
                   <Link href="/contact">预约免费诊断</Link>
                 </Button>
               </div>
@@ -392,7 +392,7 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-gray-200">
+              <Button asChild size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-100">
                 <Link href="/cases">查看服务案例</Link>
               </Button>
             </div>

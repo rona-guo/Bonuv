@@ -379,7 +379,7 @@ export default function SolutionsPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="border-white/50 text-white bg-transparent hover:bg-white/15 hover:border-white/70">
                 <Link href="/services">
                   了解服务详情
                   <ArrowUpRight className="ml-2 h-4 w-4" />

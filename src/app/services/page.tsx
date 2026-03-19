@@ -102,7 +102,7 @@ export default function ServicesPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         
@@ -114,7 +114,7 @@ export default function ServicesPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               全方位企业创新服务
             </h1>
-            <p className="text-xl text-indigo-100">
+            <p className="text-xl text-blue-100">
               从战略规划到落地执行，为企业创新发展提供全链条服务支撑
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
       <section id="consulting" className="py-24 bg-white scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 mb-6 shadow-lg shadow-amber-500/20">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-6 shadow-lg shadow-blue-500/20">
               <Lightbulb className="h-7 w-7 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">咨询服务</h2>
@@ -138,14 +138,14 @@ export default function ServicesPage() {
             {consultingServices.map((service) => (
               <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-slate-50/50 overflow-hidden">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-4 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{service.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {service.features.map((f) => (
-                      <Badge key={f} variant="secondary" className="bg-amber-50 text-amber-700 border-0 text-xs">
+                      <Badge key={f} variant="secondary" className="bg-blue-50 text-blue-700 border-0 text-xs">
                         {f}
                       </Badge>
                     ))}
@@ -160,9 +160,9 @@ export default function ServicesPage() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">服务模式</h3>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6">
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
                         <span className="text-white font-bold">1</span>
                       </div>
                       <h4 className="font-bold text-gray-900">陪跑服务</h4>
@@ -171,9 +171,9 @@ export default function ServicesPage() {
                       派驻专家深入企业，长期服务，根据企业经营管理中的实际问题，提出定制化服务方案，并协助落地实施。
                     </p>
                   </div>
-                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6">
+                  <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-500 flex items-center justify-center">
                         <span className="text-white font-bold">2</span>
                       </div>
                       <h4 className="font-bold text-gray-900">项目服务</h4>
@@ -193,7 +193,7 @@ export default function ServicesPage() {
       <section id="talent" className="py-24 bg-slate-50 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 mb-6 shadow-lg shadow-emerald-500/20">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 mb-6 shadow-lg shadow-cyan-500/20">
               <Users className="h-7 w-7 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">人才服务</h2>
@@ -206,14 +206,14 @@ export default function ServicesPage() {
             {talentServices.map((service) => (
               <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-4">{service.title}</h3>
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <CheckCircle className="h-4 w-4 text-cyan-500 shrink-0 mt-0.5" />
                         {item}
                       </li>
                     ))}
@@ -229,7 +229,7 @@ export default function ServicesPage() {
       <section id="digital" className="py-24 bg-white scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-6 shadow-lg shadow-blue-500/20">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-500 mb-6 shadow-lg shadow-blue-500/20">
               <Cpu className="h-7 w-7 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">数字化服务</h2>
@@ -283,7 +283,7 @@ export default function ServicesPage() {
       <section id="ip" className="py-24 bg-slate-50 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 mb-6 shadow-lg shadow-purple-500/20">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 mb-6 shadow-lg shadow-blue-500/20">
               <Shield className="h-7 w-7 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">知识产权服务</h2>
@@ -294,7 +294,7 @@ export default function ServicesPage() {
           
           <div className="max-w-4xl mx-auto">
             <Card className="border-0 shadow-xl overflow-hidden">
-              <div className="h-1.5 bg-gradient-to-r from-purple-500 to-pink-500" />
+              <div className="h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500" />
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">专业知识产权服务</h3>
@@ -304,7 +304,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {['知识产权战略规划', '专利申请与维护', '商标注册与管理', '著作权登记', '风险防控', '高企认定辅导'].map((item) => (
-                    <Badge key={item} variant="secondary" className="bg-purple-50 text-purple-700 border-0 px-4 py-1.5">
+                    <Badge key={item} variant="secondary" className="bg-blue-50 text-blue-700 border-0 px-4 py-1.5">
                       {item}
                     </Badge>
                   ))}
@@ -314,7 +314,7 @@ export default function ServicesPage() {
                     href="https://www.pship.com.cn" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
                   >
                     了解更多知识产权服务详情
                     <ArrowRight className="h-4 w-4" />
@@ -328,7 +328,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         
@@ -337,10 +337,10 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               选择适合您的服务
             </h2>
-            <p className="text-indigo-100 text-lg mb-8">
+            <p className="text-blue-100 text-lg mb-8">
               我们将根据您的企业现状和需求，提供定制化的解决方案
             </p>
-            <Button asChild size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 shadow-xl">
+            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
               <Link href="/contact">
                 免费咨询
                 <ArrowRight className="ml-2 h-4 w-4" />

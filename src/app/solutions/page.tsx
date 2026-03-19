@@ -32,7 +32,7 @@ const enterpriseStages = [
       { name: '核心人才招聘', fit: 90 },
       { name: '基础制度建设', fit: 80 },
     ],
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-blue-400 to-cyan-400',
   },
   {
     stage: '成长期',
@@ -58,7 +58,7 @@ const enterpriseStages = [
       { name: '创新体系建设', fit: 88 },
       { name: '组织活力激发', fit: 85 },
     ],
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-600 to-cyan-600',
   },
   {
     stage: '集团化',
@@ -71,7 +71,7 @@ const enterpriseStages = [
       { name: '共享服务中心', fit: 88 },
       { name: '人才中心建设', fit: 85 },
     ],
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-blue-700 to-cyan-700',
   },
 ];
 
@@ -120,7 +120,7 @@ export default function SolutionsPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         
@@ -132,7 +132,7 @@ export default function SolutionsPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               为您的企业找到最适合的方案
             </h1>
-            <p className="text-xl text-indigo-100">
+            <p className="text-xl text-blue-100">
               基于企业生命周期和行业特点，精准匹配服务内容
             </p>
           </div>
@@ -228,7 +228,7 @@ export default function SolutionsPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+                      <tr className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
                         <th className="px-6 py-4 text-left font-semibold">服务类型</th>
                         <th className="px-4 py-4 text-center font-semibold">初创期</th>
                         <th className="px-4 py-4 text-center font-semibold">成长期</th>
@@ -242,8 +242,8 @@ export default function SolutionsPage() {
                           <td className="px-6 py-4 font-medium text-gray-900">{row.service}</td>
                           <td className="px-4 py-4 text-center">
                             <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.startup >= 85 ? 'bg-emerald-100 text-emerald-700' : 
-                              row.startup >= 70 ? 'bg-amber-100 text-amber-700' : 
+                              row.startup >= 85 ? 'bg-blue-100 text-blue-700' : 
+                              row.startup >= 70 ? 'bg-cyan-100 text-cyan-700' : 
                               'bg-gray-100 text-gray-600'
                             }`}>
                               {row.startup}
@@ -251,8 +251,8 @@ export default function SolutionsPage() {
                           </td>
                           <td className="px-4 py-4 text-center">
                             <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.growth >= 85 ? 'bg-emerald-100 text-emerald-700' : 
-                              row.growth >= 70 ? 'bg-amber-100 text-amber-700' : 
+                              row.growth >= 85 ? 'bg-blue-100 text-blue-700' : 
+                              row.growth >= 70 ? 'bg-cyan-100 text-cyan-700' : 
                               'bg-gray-100 text-gray-600'
                             }`}>
                               {row.growth}
@@ -260,8 +260,8 @@ export default function SolutionsPage() {
                           </td>
                           <td className="px-4 py-4 text-center">
                             <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.mature >= 85 ? 'bg-emerald-100 text-emerald-700' : 
-                              row.mature >= 70 ? 'bg-amber-100 text-amber-700' : 
+                              row.mature >= 85 ? 'bg-blue-100 text-blue-700' : 
+                              row.mature >= 70 ? 'bg-cyan-100 text-cyan-700' : 
                               'bg-gray-100 text-gray-600'
                             }`}>
                               {row.mature}
@@ -269,8 +269,8 @@ export default function SolutionsPage() {
                           </td>
                           <td className="px-4 py-4 text-center">
                             <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.enterprise >= 85 ? 'bg-emerald-100 text-emerald-700' : 
-                              row.enterprise >= 70 ? 'bg-amber-100 text-amber-700' : 
+                              row.enterprise >= 85 ? 'bg-blue-100 text-blue-700' : 
+                              row.enterprise >= 70 ? 'bg-cyan-100 text-cyan-700' : 
                               'bg-gray-100 text-gray-600'
                             }`}>
                               {row.enterprise}
@@ -285,11 +285,11 @@ export default function SolutionsPage() {
             </Card>
             <div className="flex items-center justify-center gap-6 mt-6">
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-emerald-100" />
+                <span className="w-4 h-4 rounded bg-blue-100" />
                 <span className="text-sm text-gray-600">高度适配 (≥85)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-amber-100" />
+                <span className="w-4 h-4 rounded bg-cyan-100" />
                 <span className="text-sm text-gray-600">中度适配 (70-84)</span>
               </div>
               <div className="flex items-center gap-2">
@@ -318,7 +318,7 @@ export default function SolutionsPage() {
               <Card key={item.industry} className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-slate-50 overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <item.icon className="h-7 w-7 text-white" />
                     </div>
                     <div className="flex-1">
@@ -339,7 +339,7 @@ export default function SolutionsPage() {
                           <p className="text-xs text-gray-500 mb-1.5">解决方案</p>
                           <div className="flex flex-wrap gap-1">
                             {item.solutions.map((s) => (
-                              <Badge key={s} variant="secondary" className="bg-indigo-50 text-indigo-600 border-0 text-xs">
+                              <Badge key={s} variant="secondary" className="bg-blue-50 text-blue-600 border-0 text-xs">
                                 {s}
                               </Badge>
                             ))}
@@ -360,20 +360,20 @@ export default function SolutionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               不确定哪个方案适合您？
             </h2>
-            <p className="text-indigo-200 text-lg mb-8">
+            <p className="text-blue-200 text-lg mb-8">
               预约免费诊断，我们的顾问将为您定制专属解决方案
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 shadow-xl">
+              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
                 <Link href="/contact">
                   预约免费诊断
                   <ArrowRight className="ml-2 h-4 w-4" />

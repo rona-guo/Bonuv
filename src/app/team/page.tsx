@@ -7,7 +7,6 @@ import {
   Lightbulb,
   Cpu,
   Shield,
-  TrendingUp,
   CheckCircle,
   Briefcase,
   GraduationCap,
@@ -29,7 +28,7 @@ const teamCapabilities = [
     description: '构建高效组织体系，打造人才竞争优势',
     capabilities: ['组织架构设计', '人才盘点与建模', '绩效与激励体系', '培训发展体系'],
     strength: 96,
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-cyan-500 to-blue-500',
   },
   {
     category: '数字化转型',
@@ -37,7 +36,7 @@ const teamCapabilities = [
     description: '以低代码为核心，助力企业低成本数字化',
     capabilities: ['数字化诊断', '低代码平台实施', '流程数字化', '数据资产管理'],
     strength: 90,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-sky-500 to-blue-500',
   },
   {
     category: '知识产权服务',
@@ -45,7 +44,7 @@ const teamCapabilities = [
     description: '保护创新成果，构建企业竞争壁垒',
     capabilities: ['专利申请与布局', '商标注册', '知识产权风险防控', '高企认定辅导'],
     strength: 88,
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-blue-600 to-cyan-600',
   },
 ];
 
@@ -74,7 +73,7 @@ export default function TeamPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         
@@ -86,7 +85,7 @@ export default function TeamPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               专业能力，护航企业发展
             </h1>
-            <p className="text-xl text-indigo-100">
+            <p className="text-xl text-blue-100">
               汇聚战略、人力、技术、知识产权多领域专家，为企业提供全方位支撑
             </p>
           </div>
@@ -99,10 +98,10 @@ export default function TeamPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {teamCredentials.map((item) => (
               <div key={item.label} className="text-center">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/20">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/20">
                   <item.icon className="h-7 w-7 text-white" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   {item.value}
                 </div>
                 <div className="text-sm font-medium text-gray-900 mt-1">{item.label}</div>
@@ -180,11 +179,11 @@ export default function TeamPage() {
                   <div key={item.area} className="space-y-2">
                     <div className="flex justify-between text-sm">
                       <span className="font-medium text-gray-900">{item.area}</span>
-                      <span className="text-indigo-600 font-semibold">{item.level}%</span>
+                      <span className="text-blue-600 font-semibold">{item.level}%</span>
                     </div>
                     <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-1000"
+                        className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000"
                         style={{ width: `${item.level}%` }}
                       />
                     </div>
@@ -193,36 +192,36 @@ export default function TeamPage() {
               </div>
             </div>
             
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white overflow-hidden">
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white overflow-hidden">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-6">团队优势</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-200 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-200 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">跨界融合</p>
-                      <p className="text-sm text-indigo-200">战略、人力、技术、知识产权多领域专家协同</p>
+                      <p className="text-sm text-blue-200">战略、人力、技术、知识产权多领域专家协同</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-200 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-200 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">实战导向</p>
-                      <p className="text-sm text-indigo-200">核心顾问均有知名企业实战管理经验</p>
+                      <p className="text-sm text-blue-200">核心顾问均有知名企业实战管理经验</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-200 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-200 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">方法论驱动</p>
-                      <p className="text-sm text-indigo-200">持续研究创新方法论，保持专业领先</p>
+                      <p className="text-sm text-blue-200">持续研究创新方法论，保持专业领先</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-200 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-200 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">陪跑服务</p>
-                      <p className="text-sm text-indigo-200">深入一线，确保方案落地执行</p>
+                      <p className="text-sm text-blue-200">深入一线，确保方案落地执行</p>
                     </div>
                   </div>
                 </div>
@@ -258,19 +257,19 @@ export default function TeamPage() {
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-6">
-                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   专心
                 </div>
                 <p className="text-sm text-gray-600">专注企业创新服务领域</p>
               </div>
               <div className="text-center p-6">
-                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   专注
                 </div>
                 <p className="text-sm text-gray-600">深耕管理咨询方法论</p>
               </div>
               <div className="text-center p-6">
-                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   专业
                 </div>
                 <p className="text-sm text-gray-600">专家团队护航成长</p>

@@ -67,7 +67,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center space-x-3">
-          <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/20">
+          <Button asChild className="bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20">
             <Link href="/contact">预约咨询</Link>
           </Button>
         </div>
@@ -100,7 +100,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600">
+            <Button asChild className="mt-4 bg-blue-600 hover:bg-blue-700">
               <Link href="/contact" onClick={() => setIsOpen(false)}>预约咨询</Link>
             </Button>
           </nav>

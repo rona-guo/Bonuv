@@ -7,7 +7,7 @@ import { Building2, CheckCircle, ArrowRight, Star, Quote } from 'lucide-react';
 const cases = [
   {
     category: '咨询服务',
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-blue-500 to-cyan-500',
     clients: [
       { name: '中国建筑第四工程局有限公司', highlight: true },
       { name: '中国船舶集团有限公司第七〇一研究所', highlight: true },
@@ -19,7 +19,7 @@ const cases = [
   },
   {
     category: '人才服务',
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-cyan-500 to-sky-500',
     clients: [
       { name: '美宜佳便利店有限公司', highlight: true },
       { name: '汉堡王', highlight: true },
@@ -35,7 +35,7 @@ const cases = [
   },
   {
     category: '数字化服务',
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-sky-500 to-blue-500',
     clients: [
       { name: '中国石油湖北销售公司', highlight: true },
       { name: '三峡机场出入境边防检查站', highlight: true },
@@ -72,7 +72,7 @@ export default function CasesPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
         
@@ -84,7 +84,7 @@ export default function CasesPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               深受客户信赖
             </h1>
-            <p className="text-xl text-indigo-100">
+            <p className="text-xl text-blue-100">
               覆盖多个行业领域，见证企业成长与蜕变
             </p>
           </div>
@@ -96,19 +96,19 @@ export default function CasesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 50+
               </div>
               <div className="text-sm text-gray-600 mt-1">服务企业</div>
             </div>
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 100+
               </div>
               <div className="text-sm text-gray-600 mt-1">成功项目</div>
             </div>
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 98%
               </div>
               <div className="text-sm text-gray-600 mt-1">客户满意度</div>
@@ -167,13 +167,13 @@ export default function CasesPage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {testimonials.map((item, index) => (
               <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div className="h-1 bg-gradient-to-r from-indigo-500 to-purple-500" />
+                <div className="h-1 bg-gradient-to-r from-blue-500 to-cyan-500" />
                 <CardContent className="p-6">
-                  <Quote className="h-8 w-8 text-indigo-200 mb-4" />
+                  <Quote className="h-8 w-8 text-blue-200 mb-4" />
                   <p className="text-gray-600 leading-relaxed mb-6">{item.content}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-900">{item.company}</span>
-                    <Badge variant="secondary" className="bg-indigo-50 text-indigo-600 border-0">
+                    <Badge variant="secondary" className="bg-blue-50 text-blue-600 border-0">
                       {item.service}
                     </Badge>
                   </div>
@@ -185,13 +185,13 @@ export default function CasesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 text-white">
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">成为下一个成功案例</h2>
-          <p className="text-indigo-100 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
             预约免费诊断，开启您的企业创新之旅
           </p>
-          <Button asChild size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 shadow-xl">
+          <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
             <Link href="/contact">
               立即咨询
               <ArrowRight className="ml-2 h-4 w-4" />

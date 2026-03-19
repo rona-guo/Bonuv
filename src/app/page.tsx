@@ -27,29 +27,25 @@ const services = [
     icon: Lightbulb,
     title: '战略咨询服务',
     description: '战略规划、商业模式设计、组织优化，助力企业明确方向',
-    gradient: 'from-amber-500 to-orange-500',
-    shadow: 'shadow-amber-500/20',
+    gradient: 'from-blue-600 to-blue-500',
   },
   {
     icon: Users,
     title: '人才发展服务',
     description: '人才建模、测评盘点、激励体系、学习发展全链条解决方案',
-    gradient: 'from-emerald-500 to-teal-500',
-    shadow: 'shadow-emerald-500/20',
+    gradient: 'from-cyan-600 to-cyan-500',
   },
   {
     icon: Cpu,
     title: '数字化转型服务',
     description: '低代码平台、流程数字化、数据资产管理，赋能业务增长',
-    gradient: 'from-blue-500 to-cyan-500',
-    shadow: 'shadow-blue-500/20',
+    gradient: 'from-sky-600 to-sky-500',
   },
   {
     icon: Shield,
     title: '知识产权服务',
     description: '专利申请、商标注册、风险防控，保护创新成果',
-    gradient: 'from-purple-500 to-pink-500',
-    shadow: 'shadow-purple-500/20',
+    gradient: 'from-blue-700 to-cyan-600',
   },
 ];
 
@@ -129,7 +125,7 @@ export default function HomePage() {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 让创新成为企业的
-                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
                   核心竞争力
                 </span>
               </h1>
@@ -138,13 +134,13 @@ export default function HomePage() {
                 以专业咨询助力企业突破发展瓶颈，实现可持续增长。
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-500/25 group">
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 group">
                   <Link href="/solutions">
                     发现您的解决方案
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-gray-200 hover:bg-gray-50">
+                <Button asChild size="lg" variant="outline" className="border-gray-400/30 text-white hover:bg-white/10">
                   <Link href="/contact">预约免费诊断</Link>
                 </Button>
               </div>
@@ -152,7 +148,7 @@ export default function HomePage() {
             
             {/* Right Side - Stats Card */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl" />
               <Card className="relative bg-white/80 backdrop-blur-xl border-0 shadow-2xl rounded-2xl">
                 <CardContent className="p-8">
                   <h3 className="text-lg font-semibold text-gray-900 mb-6">团队核心能力</h3>
@@ -161,11 +157,11 @@ export default function HomePage() {
                       <div key={cap.label} className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-600">{cap.label}</span>
-                          <span className="font-medium text-indigo-600">{cap.value}%</span>
+                          <span className="font-medium text-blue-600">{cap.value}%</span>
                         </div>
                         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-1000"
+                            className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000"
                             style={{ width: `${cap.value}%` }}
                           />
                         </div>
@@ -176,7 +172,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-2 gap-4">
                       {stats.slice(0, 2).map((stat) => (
                         <div key={stat.label} className="text-center">
-                          <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                             {stat.value}
                           </div>
                           <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
@@ -195,7 +191,7 @@ export default function HomePage() {
       <section className="py-24 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 bg-purple-100 text-purple-700 border-0">
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
               客户洞察
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -212,7 +208,7 @@ export default function HomePage() {
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${client.icon === TrendingUp ? 'from-emerald-500 to-teal-500' : client.icon === Zap ? 'from-amber-500 to-orange-500' : client.icon === Sparkles ? 'from-purple-500 to-pink-500' : 'from-blue-500 to-cyan-500'} flex items-center justify-center shadow-lg`}>
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
                         <client.icon className="h-6 w-6 text-white" />
                       </div>
                       <div>
@@ -221,7 +217,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                         {client.fitScore}%
                       </div>
                       <div className="text-[10px] text-gray-400">适配度</div>
@@ -243,7 +239,7 @@ export default function HomePage() {
                       <p className="text-xs text-gray-500 mb-2">推荐服务</p>
                       <div className="flex flex-wrap gap-1.5">
                         {client.services.map((service) => (
-                          <Badge key={service} variant="secondary" className="bg-indigo-50 text-indigo-600 border-0 text-xs">
+                          <Badge key={service} variant="secondary" className="bg-blue-50 text-blue-600 border-0 text-xs">
                             {service}
                           </Badge>
                         ))}
@@ -256,7 +252,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" className="border-indigo-200 text-indigo-600 hover:bg-indigo-50">
+            <Button asChild variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
               <Link href="/solutions">
                 查看完整解决方案
                 <ChevronRight className="ml-1 h-4 w-4" />
@@ -285,7 +281,7 @@ export default function HomePage() {
             {services.map((service) => (
               <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
                 <CardContent className="p-6">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg ${service.shadow} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
@@ -294,7 +290,7 @@ export default function HomePage() {
                   </p>
                   <Link 
                     href="/services"
-                    className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-700 group/link"
+                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 group/link"
                   >
                     了解详情
                     <ArrowRight className="ml-1 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
@@ -307,17 +303,17 @@ export default function HomePage() {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-24 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               为什么选择博诺辉创？
             </h2>
-            <p className="text-indigo-100 text-lg max-w-2xl mx-auto">
+            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
               我们不只是提供咨询服务，更是您企业创新发展的长期伙伴
             </p>
           </div>
@@ -328,7 +324,7 @@ export default function HomePage() {
                 <Target className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">结果导向</h3>
-              <p className="text-indigo-100 text-sm">
+              <p className="text-blue-100 text-sm">
                 以价值效益倍增为目标，每个项目都有可衡量的成果输出
               </p>
             </div>
@@ -337,7 +333,7 @@ export default function HomePage() {
                 <Layers className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">陪跑服务</h3>
-              <p className="text-indigo-100 text-sm">
+              <p className="text-blue-100 text-sm">
                 深入企业一线，长期陪伴成长，确保方案真正落地执行
               </p>
             </div>
@@ -346,14 +342,14 @@ export default function HomePage() {
                 <BarChart3 className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">数据驱动</h3>
-              <p className="text-indigo-100 text-sm">
+              <p className="text-blue-100 text-sm">
                 运用科学方法论和数据工具，让决策有据可依
               </p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 shadow-xl">
+            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
               <Link href="/contact">开启合作之旅</Link>
             </Button>
           </div>
@@ -366,10 +362,10 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon className="h-6 w-6 text-indigo-600" />
+                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                  <stat.icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
@@ -390,7 +386,7 @@ export default function HomePage() {
               无论您处于哪个发展阶段，我们都能为您提供适合的解决方案
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-xl shadow-indigo-500/25">
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25">
                 <Link href="/contact">
                   预约免费诊断
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -410,10 +406,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                  <Sparkles className="h-4 w-4 text-white" />
-                </div>
-                <span className="text-lg font-bold text-white">博诺辉创</span>
+                <Image src="/logo.png" alt="博诺辉创" width={120} height={40} className="h-8 w-auto brightness-0 invert" />
               </div>
               <p className="text-sm leading-relaxed">
                 专注于为企业创新过程和创新企业提供全方位管理咨询服务的专业机构。
@@ -440,7 +433,8 @@ export default function HomePage() {
               <h4 className="text-white font-semibold mb-4">联系我们</h4>
               <ul className="space-y-2 text-sm">
                 <li>湖北省武汉市</li>
-                <li>contact@bonu-huichuang.com</li>
+                <li>contact@bonuv.com</li>
+                <li><a href="https://www.bonuv.com" className="hover:text-white transition-colors">www.bonuv.com</a></li>
               </ul>
             </div>
           </div>

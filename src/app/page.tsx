@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -107,31 +108,37 @@ export default function HomePage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50" />
-        <div className="absolute inset-0 tech-grid" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-bg.jpg"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60" />
+        </div>
         
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge variant="secondary" className="mb-6 px-4 py-1.5 bg-indigo-100 text-indigo-700 border-0">
+              <Badge variant="secondary" className="mb-6 px-4 py-1.5 bg-blue-500/20 text-blue-200 border border-blue-400/30">
                 <Sparkles className="w-3 h-3 mr-2" />
                 企业创新支撑服务商
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 让创新成为企业的
-                <span className="block mt-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
                   核心竞争力
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-xl leading-relaxed">
+              <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">
                 我们专注于企业创新战略规划、组织建设、人才管理与成果转化四大领域，
                 以专业咨询助力企业突破发展瓶颈，实现可持续增长。
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-xl shadow-indigo-500/25 group">
+                <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-500/25 group">
                   <Link href="/solutions">
                     发现您的解决方案
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

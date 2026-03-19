@@ -288,45 +288,41 @@ export default function ServicesPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">知识产权服务</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              知识产权全流程服务，保护企业创新成果，助力企业构建核心竞争壁垒
+              保护企业创新成果，助力企业构建核心竞争壁垒
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <Shield className="h-6 w-6 text-purple-600" />
-                    服务内容
-                  </h3>
-                  <ul className="space-y-3">
-                    {['知识产权战略规划', '专利申请与维护', '商标注册与管理', '著作权登记', '知识产权风险防控'].map((item) => (
-                      <li key={item} className="text-gray-600 flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-purple-500 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <Target className="h-6 w-6 text-purple-600" />
-                    服务价值
-                  </h3>
-                  <ul className="space-y-3">
-                    {['保护企业核心技术', '构建竞争壁垒', '提升企业估值', '防范侵权风险', '助力高新技术企业认定'].map((item) => (
-                      <li key={item} className="text-gray-600 flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-purple-500 shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="border-0 shadow-xl overflow-hidden">
+              <div className="h-1.5 bg-gradient-to-r from-purple-500 to-pink-500" />
+              <CardContent className="p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">专业知识产权服务</h3>
+                  <p className="text-gray-600 max-w-2xl mx-auto">
+                    我们为企业提供知识产权战略规划、专利申请与维护、商标注册与管理、著作权登记、知识产权风险防控等全流程服务，保护企业创新成果，助力构建核心竞争壁垒。
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                  {['知识产权战略规划', '专利申请与维护', '商标注册与管理', '著作权登记', '风险防控', '高企认定辅导'].map((item) => (
+                    <Badge key={item} variant="secondary" className="bg-purple-50 text-purple-700 border-0 px-4 py-1.5">
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="text-center">
+                  <a 
+                    href="https://www.pship.com.cn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                  >
+                    了解更多知识产权服务详情
+                    <ArrowRight className="h-4 w-4" />
+                    <span className="text-sm text-gray-400 ml-1">pship.com.cn</span>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

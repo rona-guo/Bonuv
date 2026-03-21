@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -19,7 +21,10 @@ import {
   BarChart3,
   Layers,
   Clock,
-  Award
+  Award,
+  Play,
+  Star,
+  Rocket
 } from 'lucide-react';
 
 const services = [
@@ -27,25 +32,29 @@ const services = [
     icon: Lightbulb,
     title: '战略咨询服务',
     description: '战略规划、商业模式设计、组织优化，助力企业明确方向',
-    gradient: 'from-blue-600 to-blue-500',
+    gradient: 'from-blue-600 via-blue-500 to-cyan-500',
+    delay: '0s',
   },
   {
     icon: Users,
     title: '人才发展服务',
     description: '人才建模、测评盘点、激励体系、学习发展全链条解决方案',
-    gradient: 'from-cyan-600 to-cyan-500',
+    gradient: 'from-cyan-600 via-cyan-500 to-teal-500',
+    delay: '0.1s',
   },
   {
     icon: Cpu,
     title: '数字化转型服务',
     description: '低代码平台、流程数字化、数据资产管理，赋能业务增长',
-    gradient: 'from-sky-600 to-sky-500',
+    gradient: 'from-violet-600 via-purple-500 to-fuchsia-500',
+    delay: '0.2s',
   },
   {
     icon: Shield,
     title: '知识产权服务',
     description: '专利申请、商标注册、风险防控，保护创新成果',
-    gradient: 'from-blue-700 to-cyan-600',
+    gradient: 'from-blue-700 via-indigo-500 to-purple-500',
+    delay: '0.3s',
   },
 ];
 
@@ -101,77 +110,159 @@ const capabilities = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+    <div className="flex flex-col overflow-hidden">
+      {/* Hero Section - 科技感全屏 */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
+        {/* 动态背景层 */}
         <div className="absolute inset-0">
-          <Image
-            src="/hero-bg.jpg"
-            alt="Hero Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60" />
+          {/* 渐变底色 */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/50 to-slate-950" />
+          
+          {/* 网格背景 */}
+          <div className="absolute inset-0 tech-grid-dark opacity-60" />
+          
+          {/* 光晕效果 */}
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse-glow" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-500/10 rounded-full blur-[150px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
+          
+          {/* 旋转圆环 */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/10 rounded-full animate-spin-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-cyan-500/10 rounded-full animate-spin-reverse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-violet-500/10 rounded-full animate-spin-slow" style={{ animationDuration: '30s' }} />
+          
+          {/* 浮动粒子点 */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-blue-400 rounded-full animate-float shadow-lg shadow-blue-400/50" />
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-cyan-400 rounded-full animate-float-delayed shadow-lg shadow-cyan-400/50" />
+          <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-violet-400 rounded-full animate-float shadow-lg shadow-violet-400/50" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed shadow-lg shadow-blue-300/50" style={{ animationDelay: '2s' }} />
         </div>
-        
+
+        {/* 内容区域 */}
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge variant="secondary" className="mb-6 px-4 py-1.5 bg-blue-500/20 text-blue-200 border border-blue-400/30">
-                <Sparkles className="w-3 h-3 mr-2" />
-                企业创新支撑服务商
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                让创新成为企业的
-                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
-                  核心竞争力
-                </span>
-              </h1>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* 左侧文案 */}
+            <div className="space-y-8">
+              {/* 标签 */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-blue-500/20">
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span className="text-sm text-cyan-300">企业创新支撑服务商</span>
+              </div>
+              
+              {/* 主标题 */}
+              <div className="space-y-4">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                  让创新成为
+                  <br />
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent animate-gradient">
+                      核心竞争力
+                    </span>
+                    {/* 下划线动画 */}
+                    <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
+                      <path 
+                        d="M2 10C50 2 150 2 198 10" 
+                        stroke="url(#underline-gradient)" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                        className="animate-pulse-glow"
+                      />
+                      <defs>
+                        <linearGradient id="underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#60A5FA" />
+                          <stop offset="50%" stopColor="#22D3EE" />
+                          <stop offset="100%" stopColor="#A78BFA" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
+                </h1>
+              </div>
+              
+              {/* 描述文字 */}
+              <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
                 我们专注于企业创新战略规划、组织建设、人才管理与成果转化四大领域，
                 以专业咨询助力企业突破发展瓶颈，实现可持续增长。
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 group">
+              
+              {/* CTA 按钮 */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button asChild size="lg" className="group relative bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-lg shadow-blue-500/25 border-0 h-14 px-8 text-base font-medium btn-glow">
                   <Link href="/solutions">
+                    <Rocket className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                     发现您的解决方案
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/50 text-white bg-transparent hover:bg-white/15 hover:border-white/70">
-                  <Link href="/contact">预约免费诊断</Link>
+                <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-medium border-white/20 text-white bg-white/5 hover:bg-white/10 hover:border-white/40 backdrop-blur-sm">
+                  <Link href="/contact">
+                    <Play className="mr-2 h-5 w-5" />
+                    预约免费诊断
+                  </Link>
                 </Button>
+              </div>
+              
+              {/* 客户logo墙提示 */}
+              <div className="pt-8 flex items-center gap-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-slate-950 flex items-center justify-center">
+                      <Building2 className="w-4 h-4 text-white" />
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm text-slate-400">
+                  <span className="text-white font-semibold">50+</span> 企业信赖之选
+                </div>
               </div>
             </div>
             
-            {/* Right Side - Stats Card */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl" />
-              <Card className="relative bg-white/80 backdrop-blur-xl border-0 shadow-2xl rounded-2xl">
+            {/* 右侧数据卡片 */}
+            <div className="relative hidden lg:block">
+              {/* 装饰圆环 */}
+              <div className="absolute -inset-8 rounded-full border border-blue-500/20 animate-pulse-ring" />
+              
+              {/* 主卡片 */}
+              <Card className="relative glass-card border-0 shadow-2xl rounded-3xl overflow-hidden">
                 <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-6">团队核心能力</h3>
-                  <div className="space-y-4">
-                    {capabilities.map((cap) => (
+                  {/* 头部 */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">团队核心能力</h3>
+                      <p className="text-sm text-gray-500">Team Capabilities</p>
+                    </div>
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                      <BarChart3 className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  
+                  {/* 能力条 */}
+                  <div className="space-y-5">
+                    {capabilities.map((cap, index) => (
                       <div key={cap.label} className="space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-600">{cap.label}</span>
-                          <span className="font-medium text-blue-600">{cap.value}%</span>
+                          <span className="text-gray-600 font-medium">{cap.label}</span>
+                          <span className="font-bold text-blue-600">{cap.value}%</span>
                         </div>
-                        <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000"
-                            style={{ width: `${cap.value}%` }}
+                            className="h-full bg-gradient-to-r from-blue-500 via-cyan-500 to-violet-500 rounded-full transition-all duration-1000"
+                            style={{ 
+                              width: `${cap.value}%`,
+                              animationDelay: `${index * 0.1}s`
+                            }}
                           />
                         </div>
                       </div>
                     ))}
                   </div>
+                  
+                  {/* 统计数据 */}
                   <div className="mt-8 pt-6 border-t border-gray-100">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-6">
                       {stats.slice(0, 2).map((stat) => (
-                        <div key={stat.label} className="text-center">
+                        <div key={stat.label} className="text-center p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50">
+                          <stat.icon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
                           <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                             {stat.value}
                           </div>
@@ -182,19 +273,53 @@ export default function HomePage() {
                   </div>
                 </CardContent>
               </Card>
+              
+              {/* 浮动小卡片 */}
+              <div className="absolute -top-4 -right-4 p-4 rounded-2xl glass shadow-xl animate-float">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">98%</div>
+                    <div className="text-xs text-gray-500">客户满意度</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-4 -left-4 p-4 rounded-2xl glass shadow-xl animate-float-delayed">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-purple-500 flex items-center justify-center">
+                    <Award className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">100+</div>
+                    <div className="text-xs text-gray-500">成功项目</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        
+        {/* 底部渐变过渡 */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
       </section>
 
-      {/* Client Analysis Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50">
-        <div className="container mx-auto px-4">
+      {/* 客户分析 Section */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 tech-grid opacity-40" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          {/* 标题 */}
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0 px-4 py-1.5">
+              <Target className="w-3.5 h-3.5 mr-1.5" />
               客户洞察
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               我们最懂哪类企业？
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -202,44 +327,56 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* 客户类型卡片 */}
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {clientTypes.map((client) => (
-              <Card key={client.type} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur">
+            {clientTypes.map((client, index) => (
+              <Card 
+                key={client.type} 
+                className="group card-hover border-0 bg-white/80 backdrop-blur-sm overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
-                        <client.icon className="h-6 w-6 text-white" />
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                        <client.icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900">{client.type}</h3>
-                        <p className="text-xs text-gray-500">{client.description}</p>
+                        <h3 className="font-bold text-gray-900 text-lg">{client.type}</h3>
+                        <p className="text-sm text-gray-500">{client.description}</p>
                       </div>
                     </div>
+                    {/* 适配度 */}
                     <div className="text-right">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                      <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                         {client.fitScore}%
                       </div>
-                      <div className="text-[10px] text-gray-400">适配度</div>
+                      <div className="text-xs text-gray-400 mt-0.5">适配度</div>
                     </div>
                   </div>
                   
                   <div className="space-y-3">
                     <div>
-                      <p className="text-xs text-gray-500 mb-2">核心痛点</p>
+                      <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                        核心痛点
+                      </p>
                       <div className="flex flex-wrap gap-1.5">
                         {client.painPoints.map((point) => (
-                          <Badge key={point} variant="secondary" className="bg-red-50 text-red-600 border-0 text-xs">
+                          <Badge key={point} variant="secondary" className="bg-red-50 text-red-600 border-0 text-xs font-medium">
                             {point}
                           </Badge>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 mb-2">推荐服务</p>
+                      <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                        推荐服务
+                      </p>
                       <div className="flex flex-wrap gap-1.5">
                         {client.services.map((service) => (
-                          <Badge key={service} variant="secondary" className="bg-blue-50 text-blue-600 border-0 text-xs">
+                          <Badge key={service} variant="secondary" className="bg-blue-50 text-blue-600 border-0 text-xs font-medium">
                             {service}
                           </Badge>
                         ))}
@@ -251,8 +388,9 @@ export default function HomePage() {
             ))}
           </div>
 
+          {/* CTA */}
           <div className="text-center mt-12">
-            <Button asChild variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
+            <Button asChild variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 h-12 px-6">
               <Link href="/solutions">
                 查看完整解决方案
                 <ChevronRight className="ml-1 h-4 w-4" />
@@ -263,13 +401,19 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute top-1/2 right-0 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          {/* 标题 */}
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0 px-4 py-1.5">
+              <Layers className="w-3.5 h-3.5 mr-1.5" />
               服务体系
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               四大核心服务领域
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -277,20 +421,34 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* 服务卡片 */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {services.map((service) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
+            {services.map((service, index) => (
+              <Card 
+                key={service.title} 
+                className="group card-hover border-0 bg-white overflow-hidden"
+                style={{ animationDelay: service.delay }}
+              >
                 <CardContent className="p-6">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="h-7 w-7 text-white" />
+                  {/* 图标 */}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                    style={{ boxShadow: `0 10px 40px ${service.gradient.includes('blue') ? 'rgba(59, 130, 246, 0.3)' : service.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.3)' : 'rgba(139, 92, 246, 0.3)'}` }}
+                  >
+                    <service.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  
+                  {/* 标题 */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{service.title}</h3>
+                  
+                  {/* 描述 */}
+                  <p className="text-sm text-gray-600 leading-relaxed mb-5">
                     {service.description}
                   </p>
+                  
+                  {/* 链接 */}
                   <Link 
                     href="/services"
-                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 group/link"
+                    className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 group/link"
                   >
                     了解详情
                     <ArrowRight className="ml-1 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
@@ -302,73 +460,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
+      {/* Value Proposition - 深色科技风 */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        {/* 背景效果 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-40" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[80px]" />
         
         <div className="container mx-auto px-4 relative z-10">
+          {/* 标题 */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               为什么选择博诺辉创？
             </h2>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               我们不只是提供咨询服务，更是您企业创新发展的长期伙伴
             </p>
           </div>
 
+          {/* 价值卡片 */}
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mx-auto mb-5">
-                <Target className="h-8 w-8 text-white" />
+            {[
+              { icon: Target, title: '结果导向', desc: '以价值效益倍增为目标，每个项目都有可衡量的成果输出', color: 'blue' },
+              { icon: Layers, title: '陪跑服务', desc: '深入企业一线，长期陪伴成长，确保方案真正落地执行', color: 'cyan' },
+              { icon: BarChart3, title: '数据驱动', desc: '运用科学方法论和数据工具，让决策有据可依', color: 'violet' },
+            ].map((item, index) => (
+              <div key={item.title} className="text-center group">
+                <div className={`relative w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+                  item.color === 'blue' ? 'bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30' :
+                  item.color === 'cyan' ? 'bg-gradient-to-br from-cyan-500 to-cyan-600 shadow-lg shadow-cyan-500/30' :
+                  'bg-gradient-to-br from-violet-500 to-violet-600 shadow-lg shadow-violet-500/30'
+                }`}>
+                  <item.icon className="h-10 w-10 text-white" />
+                  <div className="absolute inset-0 rounded-2xl border border-white/20" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">结果导向</h3>
-              <p className="text-blue-100 text-sm">
-                以价值效益倍增为目标，每个项目都有可衡量的成果输出
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mx-auto mb-5">
-                <Layers className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">陪跑服务</h3>
-              <p className="text-blue-100 text-sm">
-                深入企业一线，长期陪伴成长，确保方案真正落地执行
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mx-auto mb-5">
-                <BarChart3 className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">数据驱动</h3>
-              <p className="text-blue-100 text-sm">
-                运用科学方法论和数据工具，让决策有据可依
-              </p>
-            </div>
+            ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
-              <Link href="/contact">开启合作之旅</Link>
+          {/* CTA */}
+          <div className="text-center mt-16">
+            <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100 shadow-xl h-14 px-8 text-base font-medium">
+              <Link href="/contact">
+                开启合作之旅
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-white relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon className="h-6 w-6 text-blue-600" />
+            {stats.map((stat, index) => (
+              <div key={stat.label} className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+                <div className="text-sm text-gray-500 mt-2 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -376,23 +532,32 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-violet-500/10 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <Badge variant="secondary" className="mb-6 bg-blue-100 text-blue-700 border-0">
+              <Star className="w-3.5 h-3.5 mr-1.5" />
+              开启合作
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               准备好让企业更进一步了吗？
             </h2>
-            <p className="text-gray-600 text-lg mb-8">
+            <p className="text-gray-600 text-lg mb-10">
               无论您处于哪个发展阶段，我们都能为您提供适合的解决方案
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25">
+              <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-lg shadow-blue-500/25 h-14 px-8 text-base font-medium btn-glow border-0">
                 <Link href="/contact">
+                  <Rocket className="mr-2 h-5 w-5" />
                   预约免费诊断
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-100">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-medium border-gray-300 text-gray-700 hover:bg-gray-100">
                 <Link href="/cases">查看服务案例</Link>
               </Button>
             </div>
@@ -401,44 +566,53 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-16">
-        <div className="container mx-auto px-4">
+      <footer className="bg-slate-950 text-slate-300 py-16 relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Image src="/logo.png" alt="博诺辉创" width={120} height={40} className="h-8 w-auto brightness-0 invert" />
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">B</span>
+                </div>
+                <div>
+                  <div className="font-bold text-lg text-white">博诺辉创</div>
+                  <div className="text-xs text-slate-500">BONO Creater</div>
+                </div>
               </div>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm text-slate-400 leading-relaxed">
                 专注于为企业创新过程和创新企业提供全方位管理咨询服务的专业机构。
               </p>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">服务体系</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/services" className="hover:text-white transition-colors">战略咨询</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">人才服务</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">数字化转型</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">知识产权</Link></li>
+              <h4 className="text-white font-semibold mb-6">服务体系</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">战略咨询</Link></li>
+                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">人才服务</Link></li>
+                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">数字化转型</Link></li>
+                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">知识产权</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">关于我们</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/team" className="hover:text-white transition-colors">专业团队</Link></li>
-                <li><Link href="/cases" className="hover:text-white transition-colors">服务案例</Link></li>
-                <li><Link href="/solutions" className="hover:text-white transition-colors">解决方案</Link></li>
+              <h4 className="text-white font-semibold mb-6">关于我们</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/team" className="text-slate-400 hover:text-white transition-colors">专业团队</Link></li>
+                <li><Link href="/cases" className="text-slate-400 hover:text-white transition-colors">服务案例</Link></li>
+                <li><Link href="/solutions" className="text-slate-400 hover:text-white transition-colors">解决方案</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">联系我们</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-white font-semibold mb-6">联系我们</h4>
+              <ul className="space-y-3 text-sm text-slate-400">
                 <li>湖北省武汉市</li>
                 <li>contact@bonuv.com</li>
                 <li><a href="https://www.bonuv.com" className="hover:text-white transition-colors">www.bonuv.com</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm">
+          <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
             <p>© {new Date().getFullYear()} 武汉博诺辉创企业管理有限公司 版权所有</p>
           </div>
         </div>

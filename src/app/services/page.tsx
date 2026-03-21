@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
   ArrowRight,
@@ -21,7 +21,8 @@ import {
   Users,
   Cpu,
   Shield,
-  Zap
+  Zap,
+  Rocket
 } from 'lucide-react';
 
 const consultingServices = [
@@ -30,36 +31,42 @@ const consultingServices = [
     title: '战略与商业模式咨询',
     description: '帮助企业明确战略方向，设计可持续的商业模式，构建核心竞争优势',
     features: ['战略规划与解码', '商业模式设计', '竞争战略分析', '增长路径设计'],
+    gradient: 'from-blue-600 via-blue-500 to-cyan-500',
   },
   {
     icon: Building,
     title: '组织与流程优化咨询',
     description: '优化组织架构，梳理业务流程，提升组织运营效率',
     features: ['组织架构设计', '流程再造优化', '职责体系梳理', '协同机制建立'],
+    gradient: 'from-cyan-600 via-cyan-500 to-teal-500',
   },
   {
     icon: UserCog,
     title: '人力资源管理咨询',
     description: '构建完善的人力资源管理体系，提升组织人才效能',
     features: ['HR体系诊断', '制度建设', '绩效管理体系', '薪酬激励机制'],
+    gradient: 'from-violet-600 via-purple-500 to-fuchsia-500',
   },
   {
     icon: Factory,
     title: '精益生产管理咨询',
     description: '推行精益生产理念，消除浪费，提升生产效率',
     features: ['精益生产导入', '现场改善', '品质管理', '效率提升'],
+    gradient: 'from-blue-700 via-indigo-500 to-purple-500',
   },
   {
     icon: Monitor,
     title: 'IT与数字化转型咨询',
     description: '制定数字化转型战略，选择合适的技术路径，推动业务创新',
     features: ['数字化诊断', '技术规划', '系统选型', '实施辅导'],
+    gradient: 'from-sky-600 via-blue-500 to-cyan-500',
   },
   {
     icon: FileCheck,
     title: '企业合规管理咨询',
     description: '构建合规管理体系，防范经营风险，确保企业稳健发展',
     features: ['合规诊断', '制度体系', '风险防控', '内控建设'],
+    gradient: 'from-teal-600 via-cyan-500 to-blue-500',
   },
 ];
 
@@ -68,21 +75,25 @@ const talentServices = [
     icon: UserPlus,
     title: '人才建模',
     items: ['人才模型构建', '战略解码', '人才规划', '领导力胜任力建模', '任职资格体系建设'],
+    gradient: 'from-blue-500 to-cyan-500',
   },
   {
     icon: ClipboardCheck,
     title: '人才测评与盘点',
     items: ['人才测评', '人才盘点', '继任计划', '人才梯队建设', '人才招聘/猎头'],
+    gradient: 'from-cyan-500 to-teal-500',
   },
   {
     icon: Award,
     title: '人才激励',
     items: ['绩效体系建设', 'KPI/BSC/OKR', '薪酬设计与优化', '高管薪酬', '股权激励'],
+    gradient: 'from-violet-500 to-purple-500',
   },
   {
     icon: GraduationCap,
     title: '学习与发展',
     items: ['学习项目设计', '学习地图设计', '课程开发', '导师制建立', '培训体系建设'],
+    gradient: 'from-blue-600 to-indigo-500',
   },
 ];
 
@@ -99,22 +110,32 @@ const digitalPlatforms = ['钉钉', '企业微信', '飞书', '微信服务号',
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <section className="relative py-32 overflow-hidden bg-slate-950">
+        {/* 背景效果 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-40" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[80px]" />
+        
+        {/* 旋转装饰 */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-blue-500/10 rounded-full animate-spin-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-cyan-500/10 rounded-full animate-spin-reverse" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-0">
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge variant="secondary" className="mb-6 bg-blue-500/20 text-cyan-300 border border-blue-400/30 px-4 py-1.5">
+              <Lightbulb className="w-3.5 h-3.5 mr-1.5" />
               服务内容
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              全方位企业创新服务
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              全方位企业
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                创新服务
+              </span>
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-slate-400">
               从战略规划到落地执行，为企业创新发展提供全链条服务支撑
             </p>
           </div>
@@ -122,13 +143,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Consulting Services */}
-      <section id="consulting" className="py-24 bg-white scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="consulting" className="py-24 bg-white relative scroll-mt-20 overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-6 shadow-lg shadow-blue-500/20">
-              <Lightbulb className="h-7 w-7 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-6 shadow-lg shadow-blue-500/20">
+              <Lightbulb className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">咨询服务</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">咨询服务</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               长期陪伴企业成长，以企业价值效益倍增为目标，以服务结果为导向
             </p>
@@ -136,16 +159,21 @@ export default function ServicesPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {consultingServices.map((service) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-slate-50/50 overflow-hidden">
+              <Card key={service.title} className="group card-hover border-0 bg-slate-50/50 overflow-hidden">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="h-6 w-6 text-white" />
+                  {/* 图标 */}
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                    style={{ boxShadow: `0 10px 40px ${service.gradient.includes('blue') ? 'rgba(59, 130, 246, 0.25)' : service.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.25)' : 'rgba(139, 92, 246, 0.25)'}` }}
+                  >
+                    <service.icon className="h-7 w-7 text-white" />
                   </div>
+                  
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+                  
                   <div className="flex flex-wrap gap-1.5">
                     {service.features.map((f) => (
-                      <Badge key={f} variant="secondary" className="bg-blue-50 text-blue-700 border-0 text-xs">
+                      <Badge key={f} variant="secondary" className="bg-white text-gray-700 border border-slate-200 text-xs font-medium">
                         {f}
                       </Badge>
                     ))}
@@ -155,32 +183,40 @@ export default function ServicesPage() {
             ))}
           </div>
 
+          {/* 服务模式 */}
           <div className="mt-16 max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl overflow-hidden">
+            <Card className="border-0 shadow-2xl overflow-hidden">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">服务模式</h3>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <span className="text-white font-bold">1</span>
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 overflow-hidden group hover:shadow-lg transition-shadow">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl" />
+                    <div className="relative">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
+                          <span className="text-white font-bold">1</span>
+                        </div>
+                        <h4 className="font-bold text-gray-900">陪跑服务</h4>
                       </div>
-                      <h4 className="font-bold text-gray-900">陪跑服务</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        派驻专家深入企业，长期服务，根据企业经营管理中的实际问题，提出定制化服务方案，并协助落地实施。
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      派驻专家深入企业，长期服务，根据企业经营管理中的实际问题，提出定制化服务方案，并协助落地实施。
-                    </p>
                   </div>
-                  <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-500 flex items-center justify-center">
-                        <span className="text-white font-bold">2</span>
+                  
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-cyan-50 to-blue-50 overflow-hidden group hover:shadow-lg transition-shadow">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl" />
+                    <div className="relative">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg">
+                          <span className="text-white font-bold">2</span>
+                        </div>
+                        <h4 className="font-bold text-gray-900">项目服务</h4>
                       </div>
-                      <h4 className="font-bold text-gray-900">项目服务</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        调研诊断（产业、行业、顾客、内外部环境调研，分析企业发展遇到的问题和障碍及其根源）；方案设计（解决方案、落地路径、改善措施）；辅导落地。
+                      </p>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      调研诊断（产业、行业、顾客、内外部环境调研，分析企业发展遇到的问题和障碍及其根源）；方案设计（解决方案、落地路径、改善措施）；辅导落地。
-                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -190,13 +226,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Talent Services */}
-      <section id="talent" className="py-24 bg-slate-50 scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="talent" className="py-24 bg-slate-50 relative scroll-mt-20 overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 mb-6 shadow-lg shadow-cyan-500/20">
-              <Users className="h-7 w-7 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 mb-6 shadow-lg shadow-cyan-500/20">
+              <Users className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">人才服务</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">人才服务</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               从人才建模、人才测评与盘点、人才激励、学习发展体系化解决企业面临的人才问题
             </p>
@@ -204,12 +242,17 @@ export default function ServicesPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {talentServices.map((service) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white overflow-hidden">
+              <Card key={service.title} className="group card-hover border-0 bg-white overflow-hidden">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="h-6 w-6 text-white" />
+                  {/* 图标 */}
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                    style={{ boxShadow: `0 10px 40px ${service.gradient.includes('blue') ? 'rgba(59, 130, 246, 0.25)' : service.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.25)' : 'rgba(139, 92, 246, 0.25)'}` }}
+                  >
+                    <service.icon className="h-7 w-7 text-white" />
                   </div>
+                  
                   <h3 className="text-lg font-bold text-gray-900 mb-4">{service.title}</h3>
+                  
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
@@ -226,13 +269,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Digital Services */}
-      <section id="digital" className="py-24 bg-white scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="digital" className="py-24 bg-white relative scroll-mt-20 overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-500 mb-6 shadow-lg shadow-blue-500/20">
-              <Cpu className="h-7 w-7 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-500 mb-6 shadow-lg shadow-violet-500/20">
+              <Cpu className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">数字化服务</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">数字化服务</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               还原企业战略，诊断数字化转型程度，低成本高质量建立数字化企业文化
             </p>
@@ -240,7 +285,8 @@ export default function ServicesPage() {
 
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-0 shadow-xl">
+              {/* 服务理念 */}
+              <Card className="border-0 shadow-2xl overflow-hidden">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">服务理念</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">
@@ -252,10 +298,11 @@ export default function ServicesPage() {
                 </CardContent>
               </Card>
               
+              {/* 特性网格 */}
               <div className="grid grid-cols-2 gap-4">
                 {digitalFeatures.map((feature) => (
-                  <div key={feature.title} className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-5 text-center">
-                    <feature.icon className="h-7 w-7 text-blue-600 mx-auto mb-2" />
+                  <div key={feature.title} className="p-5 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 text-center group hover:shadow-lg transition-shadow">
+                    <feature.icon className="h-8 w-8 text-blue-600 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                     <h4 className="font-bold text-gray-900">{feature.title}</h4>
                     <p className="text-xs text-gray-600 mt-1">{feature.description}</p>
                   </div>
@@ -263,12 +310,13 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <Card className="border-0 bg-gradient-to-br from-blue-600 to-cyan-600 text-white overflow-hidden">
+            {/* 支持平台 */}
+            <Card className="border-0 bg-gradient-to-r from-blue-600 via-cyan-600 to-violet-600 text-white overflow-hidden shadow-xl">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-6">支持平台</h3>
                 <div className="flex flex-wrap gap-3">
                   {digitalPlatforms.map((platform) => (
-                    <Badge key={platform} variant="secondary" className="bg-white/20 text-white hover:bg-white/30 text-sm py-1.5 px-4 border-0">
+                    <Badge key={platform} variant="secondary" className="bg-white/20 text-white hover:bg-white/30 text-sm py-2 px-4 border-0 backdrop-blur-sm">
                       {platform}
                     </Badge>
                   ))}
@@ -280,45 +328,49 @@ export default function ServicesPage() {
       </section>
 
       {/* IP Services */}
-      <section id="ip" className="py-24 bg-slate-50 scroll-mt-20">
-        <div className="container mx-auto px-4">
+      <section id="ip" className="py-24 bg-slate-50 relative scroll-mt-20 overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 mb-6 shadow-lg shadow-blue-500/20">
-              <Shield className="h-7 w-7 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 mb-6 shadow-lg shadow-blue-500/20">
+              <Shield className="h-8 w-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">知识产权服务</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">知识产权服务</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               保护企业创新成果，助力企业构建核心竞争壁垒
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl overflow-hidden">
-              <div className="h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500" />
+            <Card className="border-0 shadow-2xl overflow-hidden">
+              <div className="h-1.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-violet-500" />
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">专业知识产权服务</h3>
-                  <p className="text-gray-600 max-w-2xl mx-auto">
+                  <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     我们为企业提供知识产权战略规划、专利申请与维护、商标注册与管理、著作权登记、知识产权风险防控等全流程服务，保护企业创新成果，助力构建核心竞争壁垒。
                   </p>
                 </div>
+                
                 <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {['知识产权战略规划', '专利申请与维护', '商标注册与管理', '著作权登记', '风险防控', '高企认定辅导'].map((item) => (
-                    <Badge key={item} variant="secondary" className="bg-blue-50 text-blue-700 border-0 px-4 py-1.5">
+                    <Badge key={item} variant="secondary" className="bg-blue-50 text-blue-700 border-0 px-4 py-1.5 font-medium">
                       {item}
                     </Badge>
                   ))}
                 </div>
+                
                 <div className="text-center">
                   <a 
                     href="https://www.pship.com.cn" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium group"
                   >
                     了解更多知识产权服务详情
-                    <ArrowRight className="h-4 w-4" />
-                    <span className="text-sm text-gray-400 ml-1">pship.com.cn</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-sm text-slate-400 ml-1">pship.com.cn</span>
                   </a>
                 </div>
               </CardContent>
@@ -328,22 +380,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        {/* 背景效果 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-40" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[80px]" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               选择适合您的服务
             </h2>
-            <p className="text-blue-100 text-lg mb-8">
+            <p className="text-slate-400 text-lg mb-10">
               我们将根据您的企业现状和需求，提供定制化的解决方案
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
+            <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100 shadow-xl h-14 px-8 text-base font-medium rounded-xl">
               <Link href="/contact">
+                <Rocket className="mr-2 h-5 w-5" />
                 免费咨询
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

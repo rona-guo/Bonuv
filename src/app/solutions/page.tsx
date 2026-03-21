@@ -17,7 +17,8 @@ import {
   AlertCircle,
   BarChart3,
   Settings,
-  ArrowUpRight
+  ArrowUpRight,
+  Rocket
 } from 'lucide-react';
 
 const enterpriseStages = [
@@ -33,6 +34,7 @@ const enterpriseStages = [
       { name: '基础制度建设', fit: 80 },
     ],
     color: 'from-blue-400 to-cyan-400',
+    glow: 'shadow-blue-400/30',
   },
   {
     stage: '成长期',
@@ -46,6 +48,7 @@ const enterpriseStages = [
       { name: '流程标准化', fit: 90 },
     ],
     color: 'from-blue-500 to-cyan-500',
+    glow: 'shadow-cyan-500/30',
   },
   {
     stage: '成熟期',
@@ -59,6 +62,7 @@ const enterpriseStages = [
       { name: '组织活力激发', fit: 85 },
     ],
     color: 'from-blue-600 to-cyan-600',
+    glow: 'shadow-blue-600/30',
   },
   {
     stage: '集团化',
@@ -72,6 +76,7 @@ const enterpriseStages = [
       { name: '人才中心建设', fit: 85 },
     ],
     color: 'from-blue-700 to-cyan-700',
+    glow: 'shadow-cyan-600/30',
   },
 ];
 
@@ -82,6 +87,7 @@ const industrySolutions = [
     painPoints: ['生产效率低', '库存管理混乱', '质量管控难'],
     solutions: ['精益生产咨询', '流程优化', '数字化工厂'],
     cases: ['巨立电梯', '武汉静磁栅'],
+    gradient: 'from-blue-500 to-cyan-500',
   },
   {
     industry: '零售连锁',
@@ -89,6 +95,7 @@ const industrySolutions = [
     painPoints: ['门店扩张慢', '人才供给不足', '标准化程度低'],
     solutions: ['连锁运营体系', '人才梯队建设', '培训体系搭建'],
     cases: ['美宜佳', '汉堡王'],
+    gradient: 'from-cyan-500 to-teal-500',
   },
   {
     industry: '科技互联网',
@@ -96,6 +103,7 @@ const industrySolutions = [
     painPoints: ['研发管理弱', '知识产权风险', '人才竞争激烈'],
     solutions: ['研发管理体系', '知识产权服务', '股权激励设计'],
     cases: ['武汉红星杨', '江苏万洋投资'],
+    gradient: 'from-violet-500 to-purple-500',
   },
   {
     industry: '国企/央企',
@@ -103,6 +111,7 @@ const industrySolutions = [
     painPoints: ['市场化转型', '人才机制僵化', '数字化滞后'],
     solutions: ['市场化改革', '人才机制创新', '数字化转型'],
     cases: ['中国建筑四局', '中国船舶701所'],
+    gradient: 'from-blue-600 to-indigo-600',
   },
 ];
 
@@ -117,22 +126,32 @@ const serviceFitMatrix = [
 
 export default function SolutionsPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700" />
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <section className="relative py-32 overflow-hidden bg-slate-950">
+        {/* 背景效果 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-40" />
+        <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[80px]" />
+        
+        {/* 旋转装饰 */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-blue-500/10 rounded-full animate-spin-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-cyan-500/10 rounded-full animate-spin-reverse" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-0">
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge variant="secondary" className="mb-6 bg-blue-500/20 text-cyan-300 border border-blue-400/30 px-4 py-1.5">
+              <Target className="w-3.5 h-3.5 mr-1.5" />
               解决方案
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              为您的企业找到最适合的方案
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              为您的企业找到
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                最适合的方案
+              </span>
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-slate-400">
               基于企业生命周期和行业特点，精准匹配服务内容
             </p>
           </div>
@@ -140,11 +159,16 @@ export default function SolutionsPage() {
       </section>
 
       {/* Enterprise Stage Analysis */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              企业生命周期服务适配
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
+              企业生命周期
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+              服务适配模型
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               不同发展阶段的企业面临不同的挑战，我们提供针对性的解决方案
@@ -152,25 +176,32 @@ export default function SolutionsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {enterpriseStages.map((item) => (
-              <Card key={item.stage} className="group hover:shadow-xl transition-all duration-300 border-0 bg-slate-50/50 overflow-hidden">
+            {enterpriseStages.map((item, index) => (
+              <Card 
+                key={item.stage} 
+                className="group card-hover border-0 bg-white overflow-hidden"
+              >
+                {/* 顶部渐变条 */}
                 <div className={`h-1.5 bg-gradient-to-r ${item.color}`} />
+                
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className="text-xl">{item.stage}</CardTitle>
-                      <p className="text-xs text-gray-400 mt-0.5">{item.stageEn}</p>
+                      <p className="text-xs text-slate-400 mt-0.5">{item.stageEn}</p>
                     </div>
-                    <Badge variant="secondary" className="bg-white text-gray-600">
+                    <Badge variant="secondary" className="bg-slate-100 text-slate-600 font-medium">
                       {item.employees}
                     </Badge>
                   </div>
-                  <p className="text-sm text-gray-600 mt-2">{item.description}</p>
+                  <p className="text-sm text-gray-500 mt-3">{item.description}</p>
                 </CardHeader>
+                
                 <CardContent className="space-y-4">
+                  {/* 挑战 */}
                   <div>
                     <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <AlertCircle className="h-3 w-3 text-red-400" />
                       典型挑战
                     </p>
                     <div className="flex flex-wrap gap-1">
@@ -181,9 +212,11 @@ export default function SolutionsPage() {
                       ))}
                     </div>
                   </div>
+                  
+                  {/* 推荐服务 */}
                   <div>
                     <p className="text-xs text-gray-500 mb-2 flex items-center gap-1">
-                      <CheckCircle className="h-3 w-3" />
+                      <CheckCircle className="h-3 w-3 text-blue-400" />
                       推荐服务
                     </p>
                     <div className="space-y-2">
@@ -191,13 +224,13 @@ export default function SolutionsPage() {
                         <div key={s.name} className="flex items-center justify-between">
                           <span className="text-sm text-gray-700">{s.name}</span>
                           <div className="flex items-center gap-2">
-                            <div className="w-16 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                            <div className="w-16 h-1.5 bg-slate-100 rounded-full overflow-hidden">
                               <div 
                                 className={`h-full bg-gradient-to-r ${item.color} rounded-full`}
                                 style={{ width: `${s.fit}%` }}
                               />
                             </div>
-                            <span className="text-xs font-medium text-gray-500">{s.fit}%</span>
+                            <span className="text-xs font-medium text-slate-500 w-8">{s.fit}%</span>
                           </div>
                         </div>
                       ))}
@@ -211,10 +244,15 @@ export default function SolutionsPage() {
       </section>
 
       {/* Service Fit Matrix */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
+              数据洞察
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               服务适配度矩阵
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -223,55 +261,55 @@ export default function SolutionsPage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl overflow-hidden">
+            <Card className="border-0 shadow-2xl overflow-hidden">
               <CardContent className="p-0">
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
-                        <th className="px-6 py-4 text-left font-semibold">服务类型</th>
-                        <th className="px-4 py-4 text-center font-semibold">初创期</th>
-                        <th className="px-4 py-4 text-center font-semibold">成长期</th>
-                        <th className="px-4 py-4 text-center font-semibold">成熟期</th>
-                        <th className="px-4 py-4 text-center font-semibold">集团化</th>
+                        <th className="px-6 py-5 text-left font-semibold text-sm">服务类型</th>
+                        <th className="px-4 py-5 text-center font-semibold text-sm">初创期</th>
+                        <th className="px-4 py-5 text-center font-semibold text-sm">成长期</th>
+                        <th className="px-4 py-5 text-center font-semibold text-sm">成熟期</th>
+                        <th className="px-4 py-5 text-center font-semibold text-sm">集团化</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100">
+                    <tbody className="divide-y divide-slate-100">
                       {serviceFitMatrix.map((row, index) => (
                         <tr key={row.service} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                          <td className="px-6 py-4 font-medium text-gray-900">{row.service}</td>
-                          <td className="px-4 py-4 text-center">
-                            <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.startup >= 85 ? 'bg-blue-100 text-blue-700' : 
-                              row.startup >= 70 ? 'bg-cyan-100 text-cyan-700' : 
-                              'bg-gray-100 text-gray-600'
+                          <td className="px-6 py-5 font-medium text-gray-900">{row.service}</td>
+                          <td className="px-4 py-5 text-center">
+                            <span className={`inline-flex items-center justify-center w-14 h-14 rounded-xl text-sm font-bold transition-transform hover:scale-110 ${
+                              row.startup >= 85 ? 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-700' : 
+                              row.startup >= 70 ? 'bg-cyan-50 text-cyan-700' : 
+                              'bg-slate-100 text-slate-600'
                             }`}>
                               {row.startup}
                             </span>
                           </td>
-                          <td className="px-4 py-4 text-center">
-                            <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.growth >= 85 ? 'bg-blue-100 text-blue-700' : 
-                              row.growth >= 70 ? 'bg-cyan-100 text-cyan-700' : 
-                              'bg-gray-100 text-gray-600'
+                          <td className="px-4 py-5 text-center">
+                            <span className={`inline-flex items-center justify-center w-14 h-14 rounded-xl text-sm font-bold transition-transform hover:scale-110 ${
+                              row.growth >= 85 ? 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-700' : 
+                              row.growth >= 70 ? 'bg-cyan-50 text-cyan-700' : 
+                              'bg-slate-100 text-slate-600'
                             }`}>
                               {row.growth}
                             </span>
                           </td>
-                          <td className="px-4 py-4 text-center">
-                            <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.mature >= 85 ? 'bg-blue-100 text-blue-700' : 
-                              row.mature >= 70 ? 'bg-cyan-100 text-cyan-700' : 
-                              'bg-gray-100 text-gray-600'
+                          <td className="px-4 py-5 text-center">
+                            <span className={`inline-flex items-center justify-center w-14 h-14 rounded-xl text-sm font-bold transition-transform hover:scale-110 ${
+                              row.mature >= 85 ? 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-700' : 
+                              row.mature >= 70 ? 'bg-cyan-50 text-cyan-700' : 
+                              'bg-slate-100 text-slate-600'
                             }`}>
                               {row.mature}
                             </span>
                           </td>
-                          <td className="px-4 py-4 text-center">
-                            <span className={`inline-flex items-center justify-center w-12 h-12 rounded-lg text-sm font-bold ${
-                              row.enterprise >= 85 ? 'bg-blue-100 text-blue-700' : 
-                              row.enterprise >= 70 ? 'bg-cyan-100 text-cyan-700' : 
-                              'bg-gray-100 text-gray-600'
+                          <td className="px-4 py-5 text-center">
+                            <span className={`inline-flex items-center justify-center w-14 h-14 rounded-xl text-sm font-bold transition-transform hover:scale-110 ${
+                              row.enterprise >= 85 ? 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-700' : 
+                              row.enterprise >= 70 ? 'bg-cyan-50 text-cyan-700' : 
+                              'bg-slate-100 text-slate-600'
                             }`}>
                               {row.enterprise}
                             </span>
@@ -283,17 +321,19 @@ export default function SolutionsPage() {
                 </div>
               </CardContent>
             </Card>
-            <div className="flex items-center justify-center gap-6 mt-6">
+            
+            {/* 图例 */}
+            <div className="flex items-center justify-center gap-8 mt-8">
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-blue-100" />
+                <span className="w-5 h-5 rounded bg-gradient-to-br from-blue-100 to-cyan-100" />
                 <span className="text-sm text-gray-600">高度适配 (≥85)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-cyan-100" />
+                <span className="w-5 h-5 rounded bg-cyan-50" />
                 <span className="text-sm text-gray-600">中度适配 (70-84)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-gray-100" />
+                <span className="w-5 h-5 rounded bg-slate-100" />
                 <span className="text-sm text-gray-600">一般适配 (&lt;70)</span>
               </div>
             </div>
@@ -302,10 +342,15 @@ export default function SolutionsPage() {
       </section>
 
       {/* Industry Solutions */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 border-0">
+              行业深耕
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
               行业解决方案
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -315,12 +360,16 @@ export default function SolutionsPage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {industrySolutions.map((item) => (
-              <Card key={item.industry} className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-slate-50 overflow-hidden">
+              <Card key={item.industry} className="group card-hover border-0 bg-white overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
-                      <item.icon className="h-7 w-7 text-white" />
+                    {/* 图标 */}
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                      style={{ boxShadow: `0 10px 40px ${item.gradient.includes('blue') ? 'rgba(59, 130, 246, 0.3)' : item.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.3)' : 'rgba(139, 92, 246, 0.3)'}` }}
+                    >
+                      <item.icon className="h-8 w-8 text-white" />
                     </div>
+                    
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{item.industry}</h3>
                       
@@ -347,7 +396,7 @@ export default function SolutionsPage() {
                         </div>
                         <div>
                           <p className="text-xs text-gray-500 mb-1.5">服务案例</p>
-                          <p className="text-sm text-gray-700">{item.cases.join('、')}</p>
+                          <p className="text-sm text-gray-700 font-medium">{item.cases.join('、')}</p>
                         </div>
                       </div>
                     </div>
@@ -360,29 +409,32 @@ export default function SolutionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        {/* 背景效果 */}
+        <div className="absolute inset-0 tech-grid-dark opacity-40" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[80px]" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
               不确定哪个方案适合您？
             </h2>
-            <p className="text-blue-200 text-lg mb-8">
+            <p className="text-slate-400 text-lg mb-10">
               预约免费诊断，我们的顾问将为您定制专属解决方案
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl">
+              <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100 shadow-xl h-14 px-8 text-base font-medium rounded-xl">
                 <Link href="/contact">
+                  <Rocket className="mr-2 h-5 w-5" />
                   预约免费诊断
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/50 text-white bg-transparent hover:bg-white/15 hover:border-white/70">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-medium border-white/20 text-white bg-white/5 hover:bg-white/10 rounded-xl">
                 <Link href="/services">
                   了解服务详情
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                  <ArrowUpRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>

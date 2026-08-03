@@ -102,7 +102,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              鄂ICP备2024061230号
+              鄂ICP备2025104340号-1
             </a>
             <a 
               href="https://www.bonuv.com" 

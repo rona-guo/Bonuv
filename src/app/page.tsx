@@ -614,6 +614,14 @@ export default function HomePage() {
           </div>
           <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
             <p>© {new Date().getFullYear()} 武汉博诺辉创企业管理有限公司 版权所有</p>
+            <a
+              href="https://beian.miit.gov.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 hover:text-cyan-400 transition-colors"
+            >
+              鄂ICP备2025104340号-1
+            </a>
           </div>
         </div>
       </footer>

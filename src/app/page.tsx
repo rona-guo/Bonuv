@@ -564,67 +564,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-300 py-16 relative overflow-hidden">
-        {/* 背景装饰 */}
-        <div className="absolute inset-0 tech-grid-dark opacity-30" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">B</span>
-                </div>
-                <div>
-                  <div className="font-bold text-lg text-white">博诺辉创</div>
-                  <div className="text-xs text-slate-500">BONO Creater</div>
-                </div>
-              </div>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                专注于为企业创新过程和创新企业提供全方位管理咨询服务的专业机构。
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-6">服务体系</h4>
-              <ul className="space-y-3 text-sm">
-                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">战略咨询</Link></li>
-                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">人才服务</Link></li>
-                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">数字化转型</Link></li>
-                <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors">知识产权</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-6">关于我们</h4>
-              <ul className="space-y-3 text-sm">
-                <li><Link href="/team" className="text-slate-400 hover:text-white transition-colors">专业团队</Link></li>
-                <li><Link href="/cases" className="text-slate-400 hover:text-white transition-colors">服务案例</Link></li>
-                <li><Link href="/solutions" className="text-slate-400 hover:text-white transition-colors">解决方案</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-6">联系我们</h4>
-              <ul className="space-y-3 text-sm text-slate-400">
-                <li>湖北省武汉市</li>
-                <li>contact@bonuv.com</li>
-                <li><a href="https://www.bonuv.com" className="hover:text-white transition-colors">www.bonuv.com</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} 武汉博诺辉创企业管理有限公司 版权所有</p>
-            <a
-              href="https://beian.miit.gov.cn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-2 hover:text-cyan-400 transition-colors"
-            >
-              鄂ICP备2025104340号-1
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
